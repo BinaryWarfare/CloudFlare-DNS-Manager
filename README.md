@@ -27,50 +27,53 @@ const cfAPI = new CloudflareAPI('your-email@example.com', 'your-api-key');
 // แทน 'your-zone-id' ด้วย Zone ID ที่คุณต้องการใช้งาน
 const zoneId = 'your-zone-id';
 
-// Example: Add a new DNS record
-// ตัวอย่าง: เพิ่ม record DNS ใหม่
-const targetIp = '192.168.1.1';
-const recordName = 'example.com';
-const recordType = 'A';
 
-try {
-    const result = await cfAPI.addDnsRecord(targetIp, recordName, recordType, zoneId);
-    console.log(result);
-} catch (error) {
-    console.error(error);
-}
 
-// Example: Get the list of DNS records
-// ตัวอย่าง: ดึงรายการระเบียน DNS
-try {
-    const result = await cfAPI.dnsScan(zoneId);
-    console.log(result);
-} catch (error) {
-    console.error(error);
-}
-
-// Example: Update a DNS record
-// ตัวอย่าง: อัปเดท record DNS
-const updatedIp = '192.168.1.2';
-const recordIdToUpdate = 'record-id-to-update'; // Replace with the actual record ID
-try {
-    const result = await cfAPI.updateDnsRecord(updatedIp, recordName, recordType, zoneId, recordIdToUpdate);
-    console.log(result);
-    // If you want Data only. หากต้องการสำหรับข้อมูลเท่านั้น.
-    console.log(result.data);
-} catch (error) {
-    console.error(error);
-}
-
-// Example: Delete a DNS record
-// ตัวอย่าง: ลบ record DNS
-const recordIdToDelete = 'record-id-to-delete'; // Replace with the actual record ID
-try {
-    const result = await cfAPI.deleteDnsRecord(zoneId, recordIdToDelete);
-    console.log(result);
-} catch (error) {
-    console.error(error);
-}
+(async () => {
+	// Example: Add a new DNS record
+	// ตัวอย่าง: เพิ่ม record DNS ใหม่
+	const targetIp = '192.168.1.1';
+	const recordName = 'example.com';
+	const recordType = 'A';
+	try {
+	    const result = await cfAPI.addDnsRecord(targetIp, recordName, recordType, zoneId);
+	    console.log(result);
+	} catch (error) {
+	    console.error(error);
+	}
+	
+	// Example: Get the list of DNS records
+	// ตัวอย่าง: ดึงรายการระเบียน DNS
+	try {
+	    const result = await cfAPI.dnsScan(zoneId);
+	    console.log(result);
+	} catch (error) {
+	    console.error(error);
+	}
+	
+	// Example: Update a DNS record
+	// ตัวอย่าง: อัปเดท record DNS
+	const updatedIp = '192.168.1.2';
+	const recordIdToUpdate = 'record-id-to-update'; // Replace with the actual record ID
+	try {
+	    const result = await cfAPI.updateDnsRecord(updatedIp, recordName, recordType, zoneId, recordIdToUpdate);
+	    console.log(result);
+	    // If you want Data only. หากต้องการสำหรับข้อมูลเท่านั้น.
+	    console.log(result.data);
+	} catch (error) {
+	    console.error(error);
+	}
+	
+	// Example: Delete a DNS record
+	// ตัวอย่าง: ลบ record DNS
+	const recordIdToDelete = 'record-id-to-delete'; // Replace with the actual record ID
+	try {
+	    const result = await cfAPI.deleteDnsRecord(zoneId, recordIdToDelete);
+	    console.log(result);
+	} catch (error) {
+	    console.error(error);
+	}
+})();
 
 
 ```
