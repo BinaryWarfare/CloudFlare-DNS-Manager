@@ -7,6 +7,14 @@
 
 Easily automate and manage your **CloudFlare DNS** records with the **Node.js** and **Python3** CloudFlare DNS Manager library. This powerful tool allows developers to seamlessly interact with CloudFlare's DNS API, enabling automatic management of DNS records
 
+## Inside
+```mermaid
+graph LR
+A[Library] -- Axios --> B(Cloudflare API)
+D --Response--> A(Library)
+B -- Communication --> D((Cloudfalre DNS))
+
+```
 
 ## Installation
 **NodeJS** required version **> 10.2.x**
@@ -104,15 +112,6 @@ const zoneId = 'your-zone-id';
 |addDnsRecord          |`targetIp,  name,  recordType,  zoneId, comment, ttl`            |`success`, `exception`, `message`, `data`           |
 |updateDnsRecord          |`targetIp,  name,  recordType,  zoneId, comment, ttl`            |`success`, `exception`, `message`, `data`           |
 |deleteDnsRecord          |`zoneId,  recordId`|`success`, `exception`, `message`, `data`           |
-
-## Inside
-```mermaid
-graph LR
-A[Library] -- Axios --> B(Cloudflare API)
-D --Response--> A(Library)
-B -- Communication --> D((Cloudfalre DNS))
-
-```
 
 ## Update
 Python3 library is coming soon
