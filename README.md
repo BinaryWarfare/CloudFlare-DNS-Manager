@@ -28,10 +28,9 @@ const cfAPI = new CloudflareAPI('your-email@example.com', 'your-api-key');
 const zoneId = 'your-zone-id';
 
 
-
+// Example: Add a new DNS record
+// ตัวอย่าง: เพิ่ม record DNS ใหม่
 (async () => {
-	// Example: Add a new DNS record
-	// ตัวอย่าง: เพิ่ม record DNS ใหม่
 	const targetIp = '192.168.1.1';
 	const recordName = 'example.com';
 	const recordType = 'A';
@@ -41,18 +40,24 @@ const zoneId = 'your-zone-id';
 	} catch (error) {
 	    console.error(error);
 	}
-	
-	// Example: Get the list of DNS records
-	// ตัวอย่าง: ดึงรายการระเบียน DNS
+})();
+
+
+// Example: Get the list of DNS records
+// ตัวอย่าง: ดึงรายการ DNS records
+(async () => {	
 	try {
 	    const result = await cfAPI.dnsScan(zoneId);
 	    console.log(result);
 	} catch (error) {
 	    console.error(error);
 	}
-	
-	// Example: Update a DNS record
-	// ตัวอย่าง: อัปเดท record DNS
+})();
+
+
+// Example: Update a DNS record
+// ตัวอย่าง: อัพเดท record DNS
+(async () => {	
 	const updatedIp = '192.168.1.2';
 	const recordIdToUpdate = 'record-id-to-update'; // Replace with the actual record ID
 	try {
@@ -63,9 +68,12 @@ const zoneId = 'your-zone-id';
 	} catch (error) {
 	    console.error(error);
 	}
-	
-	// Example: Delete a DNS record
-	// ตัวอย่าง: ลบ record DNS
+})();
+
+
+// Example: Delete a DNS record
+// ตัวอย่าง: ลบ record DNS
+(async () => {	
 	const recordIdToDelete = 'record-id-to-delete'; // Replace with the actual record ID
 	try {
 	    const result = await cfAPI.deleteDnsRecord(zoneId, recordIdToDelete);
