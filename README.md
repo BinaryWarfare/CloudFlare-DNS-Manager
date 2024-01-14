@@ -1,3 +1,4 @@
+
 <center>
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Cloudflare_Logo.svg/2560px-Cloudflare_Logo.svg.png" alt="Icon" width="420" height="150">
 </center>
@@ -113,5 +114,13 @@ const zoneId = 'your-zone-id';
 |updateDnsRecord          |`targetIp,  name,  recordType,  zoneId, comment, ttl`            |`success`, `exception`, `message`, `data`           |
 |deleteDnsRecord          |`zoneId,  recordId`|`success`, `exception`, `message`, `data`           |
 
+**The default time-to-live (TTL) is set to 300, and the comment is automatically included—there's no need to parse the argument (ttl, comment) through the function**.
+
+
+### Record Types
+`A`, `AAAA`, `CAA`, `CERT`, `CNAME`, `DNSKEY`, `DS`, `HTTPS`, `LOC`, `MX`, `NAPTR`, `NS`, `PTR`, `SMIMEA`, `SRV`, `SSHFP`, `SVCB`, `TLSA`, `TXT`, `URI`
+
+
+
 ## Update
-Python3 library is coming soon
+Full advanced library updates & Python3 library is coming soon
